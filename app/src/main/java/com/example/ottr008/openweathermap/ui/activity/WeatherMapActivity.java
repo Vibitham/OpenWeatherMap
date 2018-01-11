@@ -13,6 +13,7 @@ import com.example.ottr008.openweathermap.presenter.WeatherMapPresenter;
 import com.example.ottr008.openweathermap.ui.fragment.ForecastTabFragment;
 import com.example.ottr008.openweathermap.ui.fragment.WeatherMapFragment;
 import com.example.ottr008.openweathermap.utils.ActivityUtils;
+import com.example.ottr008.openweathermap.utils.OpenWeatherApplication;
 
 import javax.inject.Inject;
 
@@ -20,6 +21,8 @@ public class WeatherMapActivity extends BaseActivity implements Toolbar.OnMenuIt
 
    protected ForecastPresenterComponent mForecastPresenterComponent;
 
+   @Inject
+   ForecastTabPresenter mForecastTabPresenter;
     private Toolbar toolbar;
 
     @Override
@@ -50,11 +53,15 @@ public class WeatherMapActivity extends BaseActivity implements Toolbar.OnMenuIt
      */
 
     private void initPresenter(ForecastTabFragment forecastTabFragment) {
-        mForecastPresenterComponent = DaggerForecastPresenterComponent
+       /* mForecastPresenterComponent = DaggerForecastPresenterComponent
                 .builder()
                 .forecastModule(new ForecastModule(forecastTabFragment,this))
                 .build();
-        mForecastPresenterComponent.getForecastPresenter();
+        mForecastPresenterComponent.getForecastPresenter();*/
+        OpenWeatherApplication.setForecastFragment(forecastTabFragment);
+        OpenWeatherApplication.setContext(this);
+        OpenWeatherApplication.buildApplicationComponent();
+        OpenWeatherApplication.getForecastPresenterComponent().inject(this);
     }
 
     /**

@@ -17,9 +17,26 @@ public class ForecastModule {
     private ForecastTabFragment forecastTabFragment;
     private Context context;
 
-    public ForecastModule(ForecastTabFragment forecastTabFragment,Context context) {
+    public ForecastModule() {
+
+    }
+
+    public void setForecastTabFragment(ForecastTabFragment forecastTabFragment){
         this.forecastTabFragment = forecastTabFragment;
+    }
+
+    public void setContext(Context context){
         this.context = context;
+    }
+
+    @Provides
+    ForecastTabFragment getForecastTabFragment(){
+        return forecastTabFragment;
+    }
+
+    @Provides
+    Context getContext(){
+        return context;
     }
 
     @Provides
