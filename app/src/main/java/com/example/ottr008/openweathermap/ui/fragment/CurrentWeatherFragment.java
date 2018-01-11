@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 import com.example.ottr008.openweathermap.R;
 import com.example.ottr008.openweathermap.model.weatherresponsemodel.WeatherResponse;
+import com.example.ottr008.openweathermap.presenter.contracts.CurrentWeatherContract;
 import com.example.ottr008.openweathermap.services.ApiContract;
 import com.example.ottr008.openweathermap.services.ApiClient;
 import com.example.ottr008.openweathermap.services.ServiceConstants;
@@ -43,7 +44,7 @@ import retrofit2.Response;
 import static android.content.Context.LOCATION_SERVICE;
 import static android.content.Context.MODE_PRIVATE;
 
-public class CurrentWeatherFragment extends BaseFragment implements LocationListener {
+public class CurrentWeatherFragment extends BaseFragment implements LocationListener ,CurrentWeatherContract.View{
 
     private static final int PERMISSION_REQUEST_CODE = 1;
     private static final long MIN_TIME =0 ;
@@ -58,6 +59,7 @@ public class CurrentWeatherFragment extends BaseFragment implements LocationList
     private ImageView weatherImage;
     private String separator = ", ";
     private GoogleApiClient mGoogleApiClient;
+    private CurrentWeatherContract.Presenter currentWeatherPresenter;
 
     @Override
     protected final int getLayoutResource() {
@@ -66,14 +68,6 @@ public class CurrentWeatherFragment extends BaseFragment implements LocationList
 
     @Override
     protected final void configView() {
-
-      /*  if (mGoogleApiClient == null) {
-            mGoogleApiClient = new GoogleApiClient.Builder(getActivity())
-                    .addConnectionCallbacks(this)
-                    .addOnConnectionFailedListener(this)
-                    .addApi(LocationServices.API)
-                    .build();
-        }*/
 
         initView();
 
@@ -86,7 +80,7 @@ public class CurrentWeatherFragment extends BaseFragment implements LocationList
             public void onPlaceSelected(Place place) {
                 Double latitude = place.getLatLng().latitude;
                 Double longitude = place.getLatLng().longitude;
-                apiService(latitude, longitude, appID, unit);
+                currentWeatherPresenter.apiService(latitude, longitude, appID, unit);
 
             }
 
@@ -98,23 +92,9 @@ public class CurrentWeatherFragment extends BaseFragment implements LocationList
 
     }
 
-    private void apiService(Double lat, Double lng, String apiid, String units) {
-        ApiContract apiService = ApiClient.getLoginClient().create(ApiContract.class);
-        Call<WeatherResponse> call = apiService.openWeatherResponse(lat, lng, apiid, units);
-        call.enqueue(new Callback<WeatherResponse>() {
-            @Override
-            public void onResponse(Call<WeatherResponse> call, Response<WeatherResponse> response) {
-                setViewOnResponse(response);
-            }
 
-            @Override
-            public void onFailure(Call<WeatherResponse> call, Throwable t) {
-                Log.d("Response", "Failure" + t.getMessage());
-            }
-        });
-    }
 
-    private void setViewOnResponse(Response<WeatherResponse> response) {
+    public void setViewOnResponse(Response<WeatherResponse> response) {
         setView(response.body().getName().toString(), response.body().getMain().getTemp().toString(), response.body().getMain().getHumidity().toString(),
                 response.body().getMain().getPressure().toString(), response.body().getMain().getTempMin().toString(), response.body().getMain().getTempMax().
                         toString(), response.body().getDt().longValue(), response.body().getWeather().get(0).getDescription().toString());
@@ -208,39 +188,6 @@ public class CurrentWeatherFragment extends BaseFragment implements LocationList
         }
     }
 
-   /* @Override
-    public final void onConnected(@Nullable Bundle bundle) {
-
-        if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_DENIED || ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_DENIED) {
-            ActivityCompat.requestPermissions(getActivity(),
-                    new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, 1);
-            ActivityCompat.requestPermissions(getActivity(),
-                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 2);
-            return;
-        }
-        Location mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
-        if (mLastLocation != null) {
-            latitude = mLastLocation.getLatitude();
-            longitude = mLastLocation.getLongitude();
-            apiService(latitude, longitude, appID, unit);
-        } else {
-            LocationManager locationManager = (LocationManager) getContext().getSystemService(LOCATION_SERVICE);
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
-
-
-        }
-    }
-
-    @Override
-    public final void onConnectionSuspended(int i) {
-
-    }
-
-    @Override
-    public final void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-
-    }*/
-
     public final void onStart() {
 //        mGoogleApiClient.connect();
         super.onStart();
@@ -274,7 +221,7 @@ public class CurrentWeatherFragment extends BaseFragment implements LocationList
             latitude = location.getLatitude();
             longitude = location.getLongitude();
 
-            apiService(latitude, longitude, appID, unit);
+            currentWeatherPresenter.apiService(latitude, longitude, appID, unit);
 
         }
     }
@@ -284,7 +231,7 @@ public class CurrentWeatherFragment extends BaseFragment implements LocationList
     public final void onLocationChanged(Location location) {
         latitude = location.getLatitude();
         longitude = location.getLongitude();
-        apiService(latitude, longitude, appID, unit);
+        currentWeatherPresenter.apiService(latitude, longitude, appID, unit);
     }
 
     @Override
@@ -300,5 +247,14 @@ public class CurrentWeatherFragment extends BaseFragment implements LocationList
     @Override
     public void onProviderDisabled(String s) {
 
+    }
+
+    public static CurrentWeatherFragment newInstance() {
+        return new CurrentWeatherFragment();
+    }
+
+    @Override
+    public void setPresenter(CurrentWeatherContract.Presenter currentWeatherPresenter) {
+        this.currentWeatherPresenter = currentWeatherPresenter;
     }
 }

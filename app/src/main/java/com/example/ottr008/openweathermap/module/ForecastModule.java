@@ -2,8 +2,10 @@ package com.example.ottr008.openweathermap.module;
 
 import android.content.Context;
 
+import com.example.ottr008.openweathermap.presenter.CurrentWeatherPresenter;
 import com.example.ottr008.openweathermap.presenter.ForecastTabPresenter;
-import com.example.ottr008.openweathermap.ui.fragment.ForecastTabFragment;
+import com.example.ottr008.openweathermap.presenter.contracts.CurrentWeatherContract;
+import com.example.ottr008.openweathermap.presenter.contracts.ForecastTabContract;
 
 import dagger.Module;
 import dagger.Provides;
@@ -14,24 +16,34 @@ import dagger.Provides;
 
 @Module
 public class ForecastModule {
-    private ForecastTabFragment forecastTabFragment;
+    private ForecastTabContract.View forecastTabView;
+    private CurrentWeatherContract.View currentWeatherView;
     private Context context;
 
     public ForecastModule() {
 
     }
 
-    public void setForecastTabFragment(ForecastTabFragment forecastTabFragment){
-        this.forecastTabFragment = forecastTabFragment;
+    public void setForecastTabFragment(ForecastTabContract.View forecastTabFragment){
+        this.forecastTabView = forecastTabFragment;
     }
 
     public void setContext(Context context){
         this.context = context;
     }
 
+    public void setCurrentWeatherView(CurrentWeatherContract.View currentWeatherFragment){
+        this.currentWeatherView = currentWeatherFragment;
+    }
+
     @Provides
-    ForecastTabFragment getForecastTabFragment(){
-        return forecastTabFragment;
+    ForecastTabContract.View getForecastView(){
+        return forecastTabView;
+    }
+
+    @Provides
+    CurrentWeatherContract.View getCurrentWeatherView(){
+        return currentWeatherView;
     }
 
     @Provides
@@ -40,8 +52,13 @@ public class ForecastModule {
     }
 
     @Provides
-    ForecastTabPresenter getForecastPresenter(){
-        return new ForecastTabPresenter(forecastTabFragment,context);
+    ForecastTabContract.Presenter getForecastPresenter(){
+        return new ForecastTabPresenter(getForecastView(),context);
+    }
+
+    @Provides
+    CurrentWeatherContract.Presenter getCurrentWeatherpresenter(){
+        return new CurrentWeatherPresenter(getCurrentWeatherView(),context);
     }
 
 

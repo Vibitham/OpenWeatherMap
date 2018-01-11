@@ -5,13 +5,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.example.ottr008.openweathermap.R;
-import com.example.ottr008.openweathermap.component.DaggerForecastPresenterComponent;
 import com.example.ottr008.openweathermap.component.ForecastPresenterComponent;
-import com.example.ottr008.openweathermap.module.ForecastModule;
+import com.example.ottr008.openweathermap.presenter.CurrentWeatherPresenter;
 import com.example.ottr008.openweathermap.presenter.ForecastTabPresenter;
-import com.example.ottr008.openweathermap.presenter.WeatherMapPresenter;
+import com.example.ottr008.openweathermap.ui.fragment.CurrentWeatherFragment;
 import com.example.ottr008.openweathermap.ui.fragment.ForecastTabFragment;
-import com.example.ottr008.openweathermap.ui.fragment.WeatherMapFragment;
 import com.example.ottr008.openweathermap.utils.ActivityUtils;
 import com.example.ottr008.openweathermap.utils.OpenWeatherApplication;
 
@@ -23,6 +21,9 @@ public class WeatherMapActivity extends BaseActivity implements Toolbar.OnMenuIt
 
    @Inject
    ForecastTabPresenter mForecastTabPresenter;
+
+   @Inject
+   CurrentWeatherPresenter mCurrentWeatherPresenter;
     private Toolbar toolbar;
 
     @Override
@@ -58,7 +59,7 @@ public class WeatherMapActivity extends BaseActivity implements Toolbar.OnMenuIt
                 .forecastModule(new ForecastModule(forecastTabFragment,this))
                 .build();
         mForecastPresenterComponent.getForecastPresenter();*/
-        OpenWeatherApplication.setForecastFragment(forecastTabFragment);
+        OpenWeatherApplication.setForecastView(forecastTabFragment);
         OpenWeatherApplication.setContext(this);
         OpenWeatherApplication.buildApplicationComponent();
         OpenWeatherApplication.getForecastPresenterComponent().inject(this);
@@ -88,8 +89,30 @@ public class WeatherMapActivity extends BaseActivity implements Toolbar.OnMenuIt
                 Intent settingsActivity = new Intent(this,SettingsActivity.class);
                 startActivityForResult(settingsActivity,1);
                 return true;
+
+         case R.id.options:
+             initCurrentWeather();
         }
         return true;
+    }
+
+    private void initCurrentWeather() {
+        initCurrentWeatherPresenter(initCurrentWeatherView());
+    }
+
+    private void initCurrentWeatherPresenter(CurrentWeatherFragment currentWeatherFragment) {
+       /* OpenWeatherApplication.setCurrentWeatherView(currentWeatherFragment);
+        OpenWeatherApplication.setContext(this);
+        OpenWeatherApplication.buildApplicationComponent();*/
+        //OpenWeatherApplication.getForecastPresenterComponent().inject(this);
+       new CurrentWeatherPresenter(currentWeatherFragment,this);
+    }
+
+    private CurrentWeatherFragment initCurrentWeatherView() {
+            CurrentWeatherFragment currentWeatherFragment = CurrentWeatherFragment.newInstance();
+            ActivityUtils.addFragmentToActivity(getSupportFragmentManager(), currentWeatherFragment, R.id.baseContainer);
+
+        return currentWeatherFragment;
     }
 
 }

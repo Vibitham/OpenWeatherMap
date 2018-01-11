@@ -8,4 +8,10 @@
         android:icon="@drawable/ic_settings_white_24dp"
         app:showAsAction="always"/>
 
+    <item
+        android:id="@+id/options"
+        android:title="options"
+        android:icon="@android:drawable/ic_menu_add"
+        app:showAsAction="always"/>
+
 </menu>

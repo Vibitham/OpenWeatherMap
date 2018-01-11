@@ -6,6 +6,7 @@ import android.content.Context;
 import com.example.ottr008.openweathermap.component.DaggerForecastPresenterComponent;
 import com.example.ottr008.openweathermap.component.ForecastPresenterComponent;
 import com.example.ottr008.openweathermap.module.ForecastModule;
+import com.example.ottr008.openweathermap.ui.fragment.CurrentWeatherFragment;
 import com.example.ottr008.openweathermap.ui.fragment.ForecastTabFragment;
 
 /**
@@ -27,7 +28,7 @@ public class OpenWeatherApplication extends Application {
         OpenWeatherApplication.application = application;
     }
 
-    public static void setForecastFragment(ForecastTabFragment forecastFragment){
+    public static void setForecastView(ForecastTabFragment forecastFragment){
         if(sForecastModule == null){
             sForecastModule = new ForecastModule();
         }
@@ -49,6 +50,14 @@ public class OpenWeatherApplication extends Application {
 
     public static ForecastPresenterComponent getForecastPresenterComponent() {
         return sForecastPresenterComponent;
+    }
+
+    public static void setCurrentWeatherView(CurrentWeatherFragment currentWeatherFragment){
+        if(sForecastModule == null){
+            sForecastModule = new ForecastModule();
+        }
+
+        sForecastModule.setCurrentWeatherView(currentWeatherFragment);
     }
 
 }
