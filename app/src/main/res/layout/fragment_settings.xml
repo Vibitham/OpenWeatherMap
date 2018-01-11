@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:text="Units"
+        android:textSize="20dp"
+        android:textColor="@color/colorBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/settings_textmargin"
+        android:layout_marginStart="@dimen/settings_textmargin"
+        android:layout_marginTop="@dimen/settings_unittext_margintop"
+        android:id="@+id/textView" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView"
+        android:layout_toRightOf="@+id/textView"
+        android:layout_toEndOf="@+id/textView"
+        android:layout_marginLeft="@dimen/settings_textmargin"
+        android:layout_marginStart="@dimen/settings_textmargin"
+        android:id="@+id/unitspinner" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView2"
+        android:id="@+id/forecastSpinner"
+        android:layout_alignLeft="@+id/unitspinner"
+        android:layout_alignStart="@+id/unitspinner" />
+
+    <TextView
+        android:text="Forecast"
+        android:textSize="20dp"
+        android:textColor="@color/colorBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/settings_forecast_margintop"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/textView"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView" />
+
+
+</RelativeLayout>

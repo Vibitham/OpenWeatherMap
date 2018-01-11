@@ -1,0 +1,25 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">0dp</dimen>
+    <dimen name="activity_vertical_margin">0dp</dimen>
+    <dimen name="row_item_lowtemp">20dp</dimen>
+    <dimen name="arrowimage_width">50dp</dimen>
+    <dimen name="temp_textwidth">80dp</dimen>
+    <dimen name="weatherimage_width">50dp</dimen>
+    <dimen name="rowmonth_textViewheight">30dp</dimen>
+    <dimen name="month_textsize">20dp</dimen>
+    <dimen name="row_textsize">20dp</dimen>
+    <dimen name="rowd_textheight">30dp</dimen>
+    <dimen name="currentweather_textsize">20dp</dimen>
+    <dimen name="placeautocomplete_height">30dp</dimen>
+    <dimen name="currentcity_textsize">20dp</dimen>
+    <dimen name="temp_textsize">30dp</dimen>
+    <dimen name="humidity_text_marginleft">40dp</dimen>
+    <dimen name="pressuretextmarginleft">40dp</dimen>
+    <dimen name="currentweather_text_marginleft">20dp</dimen>
+    <dimen name="currentweather_textheight">40dp</dimen>
+    <dimen name="settings_textmargin">50dp</dimen>
+    <dimen name="settings_unittext_margintop">40dp</dimen>
+    <dimen name="settings_forecast_margintop">56dp</dimen>
+    <dimen name="tablayout_elevation">2dp</dimen>
+</resources>

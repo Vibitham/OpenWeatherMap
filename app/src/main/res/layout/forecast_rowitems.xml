@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="5dp">
+
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        card_view:cardBackgroundColor="@color/lightblue"
+        card_view:cardCornerRadius="0dp"
+        card_view:cardElevation="2dp"
+        card_view:cardUseCompatPadding="true"
+        card_view:contentPadding="10dp">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/rowd_textheight"
+                    android:gravity="center"
+                    android:textSize="@dimen/row_textsize" />
+
+                <TextView
+                    android:id="@+id/month"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/rowmonth_textViewheight"
+                    android:gravity="center"
+                    android:textSize="@dimen/month_textsize" />
+
+            </LinearLayout>
+
+
+            <ImageView
+                android:id="@+id/rowimage"
+                android:layout_width="@dimen/weatherimage_width"
+                android:layout_height="match_parent"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/hightemp"
+                android:layout_width="@dimen/temp_textwidth"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textSize="@dimen/row_textsize" />
+
+            <ImageView
+                android:id="@+id/arrowimage"
+                android:layout_width="@dimen/arrowimage_width"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:src="@drawable/ic_import_export_black_24dp" />
+
+            <TextView
+                android:id="@+id/lowtemp"
+                android:layout_width="@dimen/temp_textwidth"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textSize="@dimen/row_item_lowtemp" />
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+</LinearLayout>

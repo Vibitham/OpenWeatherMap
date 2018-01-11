@@ -1,0 +1,12 @@
+
+squid:UselessImportCheck"YRemove this unused import 'com.example.ottr008.openweathermap.services.ServiceConstants'.( Õãb8—€ñû,
+{squid:UselessImportCheck"RRemove this unused import 'com.example.ottr008.openweathermap.services.ApiClient'.(³Íïê8ÓŞ“û,
+fsquid:UselessImportCheck">Remove this unused import 'android.content.SharedPreferences'.(íÎÉr8—€ñû,
+Tsquid:UselessImportCheck"+Remove this unused import 'retrofit2.Call'.(Çö÷›8ÓŞ“û,
+Wsquid:UselessImportCheck"/Remove this unused import 'retrofit2.Callback'.(›¨,8ÓŞ“û,
+Xsquid:UselessImportCheck"/Remove this unused import 'retrofit2.Response'.(¾éçï8ÓŞ“û,
+[squid:UselessImportCheck"-Remove this unused import 'android.util.Log'.(Ô¦Ø²øÿÿÿÿ8ÓŞ“û,
+{squid:S1845"aRename field "COUNT" to prevent any misunderstanding/clash with field "count" defined on line 32.(òÁ³ëúÿÿÿÿ
+‘squid:UselessImportCheck"hRemove this unused import 'com.example.ottr008.openweathermap.model.forecastresponsemodel.ForecastData'.(¶÷ì8ÓŞ“û,
+‚squid:UselessImportCheck"TRemove this unused import 'com.example.ottr008.openweathermap.services.ApiContract'.(ˆï¦«ûÿÿÿÿ8ÓŞ“û,
+{squid:S1450"ZRemove the "dataAdapter" field and declare it as a local variable in the relevant methods.(†Â§ùÿÿÿÿ8ÓŞ“û,

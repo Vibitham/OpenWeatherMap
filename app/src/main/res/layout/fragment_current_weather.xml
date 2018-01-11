@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lightblue"
+    android:orientation="vertical">
+
+    <fragment
+        android:id="@+id/place_autocomplete_fragment"
+        android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/placeautocomplete_height"
+        android:completionThreshold="1" />
+
+    <TextView
+        android:id="@+id/currentplace"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Kochi"
+        android:textSize="@dimen/currentcity_textsize" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/temperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="center"
+            android:layout_marginLeft="30dp"
+            android:textSize="@dimen/temp_textsize" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="100dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/weatherimage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/weatherDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/currentweather_textsize" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/humidity"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/currentweather_textheight"
+        android:layout_marginLeft="@dimen/humidity_text_marginleft"
+        android:textSize="@dimen/currentweather_textsize" />
+
+    <TextView
+        android:id="@+id/pressure"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/currentweather_textheight"
+        android:layout_marginLeft="@dimen/pressuretextmarginleft"
+        android:textSize="@dimen/currentweather_textsize" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginLeft="@dimen/currentweather_text_marginleft"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/hightemperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/currentweather_text_marginleft"
+            android:textSize="@dimen/currentweather_textsize" />
+
+        <TextView
+            android:id="@+id/lowtemperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/currentweather_text_marginleft"
+            android:textSize="@dimen/currentweather_textsize" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/lastUpdated"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginLeft="30dp"
+            android:text="Last updated :  "
+            android:textSize="@dimen/currentweather_textsize" />
+
+        <TextView
+            android:id="@+id/currentTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp" />
+
+    </LinearLayout>
+
+</LinearLayout>
+

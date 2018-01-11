@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="colorAccentSecondary">#666666</color>
+    <color name="colorButtonNormal">#607d8b</color>
+
+    <color name="tabBackground">#607d8b</color>
+    <color name="tabIndicatorColor">#3f5056</color>
+    <color name="tabTextColor">#97aab2</color>
+    <color name="tabSelectedTextColor">#ffffff</color>
+
+    <color name="snackbarActionColor">#607d8b</color>
+
+    <color name="overviewStartGradient">#6aaa33</color>
+    <color name="overviewEndGradient">#0288d1</color>
+
+    <color name="siuSearchTextColor">#292929</color>
+    <color name="siuToastBlue">#0084f9</color>
+    <color name="siuToastGreen">#39b54a</color>
+    <color name="siuToastDefault">@color/colorButtonNormal</color>
+
+    <color name="timePickerTitleBg">#2e776d</color>
+    <color name="colorWhite">#0000</color>
+    <color name="colorBlack">#000</color>
+    <color name="PaleGrey">#d3d3d3</color>
+    <color name="Grey">#808080</color>
+    <color name="lightblue">#87cefff0</color>
+
+</resources>

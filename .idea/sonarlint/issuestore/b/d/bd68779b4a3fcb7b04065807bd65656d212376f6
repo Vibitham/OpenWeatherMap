@@ -1,0 +1,7 @@
+
+jsquid:MaximumInheritanceDepth"<This class has 9 parents which is greater than 5 authorized.(ÕÞ‰­8ï¦ìÕ,
+S"squid:SwitchLastCaseIsDefaultCheck""Add a default case to this switch.(øå´¡ÿÿÿÿÿ
+†squid:UselessImportCheck"]Remove this unused import 'com.example.ottr008.openweathermap.presenter.WeatherMapPresenter'.(­Â¯8ÛÖ,
+rsquid:S1450"VRemove the "toolbar" field and declare it as a local variable in the relevant methods.(þ®º—8¢²üþ,
+Ssquid:S3516"9Refactor this method to not always return the same value.(ñ±©Æýÿÿÿÿ
+esquid:S1301"KReplace this "switch" statement by "if" statements to increase readability.(øå´¡ÿÿÿÿÿ
