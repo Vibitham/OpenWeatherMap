@@ -44,8 +44,6 @@ public class ForecastTabFragment extends BaseFragment implements ForecastTabCont
     private String restoredUnitsText;
     private String restoredForecastText;
 
-
-
     @Override
     protected final int getLayoutResource() {
         return R.layout.fragment_forecast_tab;
