@@ -17,8 +17,6 @@ import javax.inject.Inject;
 
 public class WeatherMapActivity extends BaseActivity implements Toolbar.OnMenuItemClickListener{
 
-   protected ForecastPresenterComponent mForecastPresenterComponent;
-
    @Inject
    ForecastTabPresenter mForecastTabPresenter;
 

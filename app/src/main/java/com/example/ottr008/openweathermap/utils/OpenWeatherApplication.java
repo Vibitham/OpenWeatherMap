@@ -3,7 +3,6 @@ package com.example.ottr008.openweathermap.utils;
 import android.app.Application;
 import android.content.Context;
 
-import com.example.ottr008.openweathermap.component.CurrentWeatherComponent;
 import com.example.ottr008.openweathermap.component.DaggerForecastPresenterComponent;
 import com.example.ottr008.openweathermap.component.ForecastPresenterComponent;
 import com.example.ottr008.openweathermap.module.ForecastModule;
@@ -18,11 +17,17 @@ public class OpenWeatherApplication extends Application {
     //public static CurrentWeatherComponent sCurrentWeatherComponent;
     private static ForecastModule sForecastModule;
     //private static CurrentWeatherModule sCurrentWeatherModule;
+    private static Application application;
 
 
     @Override
     public void onCreate() {
         super.onCreate();
+        setApplication(this);
+    }
+
+    public static void setApplication(Application application) {
+        OpenWeatherApplication.application = application;
     }
 
     public static void setForecastView(ForecastTabFragment forecastFragment){
