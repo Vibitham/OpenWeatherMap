@@ -14,14 +14,14 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import javax.inject.Inject;
+
 /**
  * Created by Vibitha on 8/3/17.
  */
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
 
-
     private final List<com.example.ottr008.openweathermap.model.forecastresponsemodel.List> list;
-    private final FragmentActivity context;
     private static final int TO_SECONDS = 1000;
     private static final int MONTH_3 = 3;
     private static final int MONTH_4 = 4;
@@ -32,7 +32,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     private static final int MONTH_9 = 9;
     private static final int MONTH_10 = 10;
     private static final int MONTH_11 = 11;
-
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         private TextView date,lowTemp,highTemp,month;
@@ -49,9 +48,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     }
 
 
-
-    public CustomAdapter(FragmentActivity ctxt, List<com.example.ottr008.openweathermap.model.forecastresponsemodel.List> list) {
-        this.context = ctxt;
+    @Inject
+    public CustomAdapter(List<com.example.ottr008.openweathermap.model.forecastresponsemodel.List> list) {
         this.list = list;
 
     }

@@ -8,7 +8,10 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
 import com.example.ottr008.openweathermap.R;
+import com.example.ottr008.openweathermap.component.DaggerForecastAdapterComponent;
+import com.example.ottr008.openweathermap.component.ForecastAdapterComponent;
 import com.example.ottr008.openweathermap.model.forecastresponsemodel.ForecastData;
+import com.example.ottr008.openweathermap.module.ForecastAdapterModule;
 import com.example.ottr008.openweathermap.presenter.contracts.ForecastTabContract;
 import com.example.ottr008.openweathermap.services.ApiContract;
 import com.example.ottr008.openweathermap.services.ApiClient;
@@ -23,6 +26,8 @@ import retrofit2.Response;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import javax.inject.Inject;
+
 public class ForecastTabFragment extends BaseFragment implements ForecastTabContract.View {
 
     private static  final Double LATITUDE = 10.2632;
@@ -31,12 +36,15 @@ public class ForecastTabFragment extends BaseFragment implements ForecastTabCont
     public static final int CNT = 7;
     private int count;
     public static final int COUNT = 16;
-    private CustomAdapter dataAdapter;
+    @Inject
+    CustomAdapter dataAdapter;
     private RecyclerView recyclerView;
     private ForecastTabContract.Presenter currentWeatherPresenter;
     private ProgressDialog loading;
     private String restoredUnitsText;
     private String restoredForecastText;
+
+
 
     @Override
     protected final int getLayoutResource() {
@@ -73,7 +81,15 @@ public class ForecastTabFragment extends BaseFragment implements ForecastTabCont
     @Override
     public void viewUpdate(List<com.example.ottr008.openweathermap.model.forecastresponsemodel.List> datas) {
         loading.dismiss();
-        dataAdapter = new CustomAdapter(getActivity(),datas);
+        ForecastAdapterModule forecastAdapterModule = new ForecastAdapterModule();
+
+        forecastAdapterModule.setAdapterList(datas);
+        ForecastAdapterComponent mForecastAdapterComponent = DaggerForecastAdapterComponent
+                .builder()
+                .forecastAdapterModule(forecastAdapterModule)
+                .build();
+        mForecastAdapterComponent.inject(this);
+        //dataAdapter = new CustomAdapter(datas);
         recyclerView.setAdapter(dataAdapter);
     }
 
