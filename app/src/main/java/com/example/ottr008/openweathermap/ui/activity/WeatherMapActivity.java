@@ -22,8 +22,9 @@ public class WeatherMapActivity extends BaseActivity implements Toolbar.OnMenuIt
    @Inject
    ForecastTabPresenter mForecastTabPresenter;
 
-   @Inject
-   CurrentWeatherPresenter mCurrentWeatherPresenter;
+   /*@Inject
+   CurrentWeatherPresenter mCurrentWeatherPresenter;*/
+
     private Toolbar toolbar;
 
     @Override
@@ -101,10 +102,10 @@ public class WeatherMapActivity extends BaseActivity implements Toolbar.OnMenuIt
     }
 
     private void initCurrentWeatherPresenter(CurrentWeatherFragment currentWeatherFragment) {
-       /* OpenWeatherApplication.setCurrentWeatherView(currentWeatherFragment);
-        OpenWeatherApplication.setContext(this);
-        OpenWeatherApplication.buildApplicationComponent();*/
-        //OpenWeatherApplication.getForecastPresenterComponent().inject(this);
+        /*OpenWeatherApplication.setCurrentWeatherView(currentWeatherFragment);
+        OpenWeatherApplication.setWeatherContext(this);
+        OpenWeatherApplication.buildWeatherComponent();
+        OpenWeatherApplication.getCurrentWeatherComponent().inject(this);*/
        new CurrentWeatherPresenter(currentWeatherFragment,this);
     }
 

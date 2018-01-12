@@ -3,10 +3,10 @@ package com.example.ottr008.openweathermap.utils;
 import android.app.Application;
 import android.content.Context;
 
+import com.example.ottr008.openweathermap.component.CurrentWeatherComponent;
 import com.example.ottr008.openweathermap.component.DaggerForecastPresenterComponent;
 import com.example.ottr008.openweathermap.component.ForecastPresenterComponent;
 import com.example.ottr008.openweathermap.module.ForecastModule;
-import com.example.ottr008.openweathermap.ui.fragment.CurrentWeatherFragment;
 import com.example.ottr008.openweathermap.ui.fragment.ForecastTabFragment;
 
 /**
@@ -15,17 +15,14 @@ import com.example.ottr008.openweathermap.ui.fragment.ForecastTabFragment;
 
 public class OpenWeatherApplication extends Application {
     private static ForecastPresenterComponent sForecastPresenterComponent;
+    //public static CurrentWeatherComponent sCurrentWeatherComponent;
     private static ForecastModule sForecastModule;
-    private static Application application;
+    //private static CurrentWeatherModule sCurrentWeatherModule;
+
 
     @Override
     public void onCreate() {
         super.onCreate();
-        setApplication(this);
-    }
-
-    public static void setApplication(Application application) {
-        OpenWeatherApplication.application = application;
     }
 
     public static void setForecastView(ForecastTabFragment forecastFragment){
@@ -48,16 +45,33 @@ public class OpenWeatherApplication extends Application {
                 .build();
     }
 
+   /* public static void buildWeatherComponent(){
+        sCurrentWeatherComponent = DaggerCurrentWeatherComponent.builder()
+                .currentWeatherModule(sCurrentWeatherModule)
+                .build();
+    }*/
+
     public static ForecastPresenterComponent getForecastPresenterComponent() {
         return sForecastPresenterComponent;
     }
+/*
+    public static CurrentWeatherComponent getCurrentWeatherComponent(){
+        return sCurrentWeatherComponent;
+    }*/
 
-    public static void setCurrentWeatherView(CurrentWeatherFragment currentWeatherFragment){
-        if(sForecastModule == null){
-            sForecastModule = new ForecastModule();
+    /*public static void setCurrentWeatherView(CurrentWeatherFragment currentWeatherFragment){
+        if(sCurrentWeatherModule == null){
+            sCurrentWeatherModule = new CurrentWeatherModule();
         }
 
-        sForecastModule.setCurrentWeatherView(currentWeatherFragment);
-    }
+        sCurrentWeatherModule.setCurrentWeatherView(currentWeatherFragment);
+    }*/
 
+  /*  public static void setWeatherContext(Context context) {
+
+        if(sCurrentWeatherModule == null){
+            sCurrentWeatherModule = new CurrentWeatherModule();
+        }
+        sCurrentWeatherModule.setWeatherContext(context);
+    }*/
 }

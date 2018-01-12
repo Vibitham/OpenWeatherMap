@@ -21,7 +21,7 @@ import retrofit2.Response;
 public class CurrentWeatherPresenter implements CurrentWeatherContract.Presenter {
     private CurrentWeatherContract.View currentWeatherContractView;
     private Context mContext;
-    @Inject
+
     public CurrentWeatherPresenter(CurrentWeatherContract.View currentWeatherContract, Context ctxt) {
         this.currentWeatherContractView = currentWeatherContract;
         currentWeatherContractView.setPresenter(this);
