@@ -4,6 +4,8 @@ package com.example.ottr008.openweathermap.datalayer.api.model.response.forecast
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class ForecastData {
 
     @SerializedName("city")
@@ -20,7 +22,7 @@ public class ForecastData {
     private Integer cnt;
     @SerializedName("list")
     @Expose
-    private java.util.List<List> list = null;
+    private List<ForcastList> mForcastList = null;
 
     public City getCity() {
         return city;
@@ -54,12 +56,12 @@ public class ForecastData {
         this.cnt = cnt;
     }
 
-    public java.util.List<List> getList() {
-        return list;
+    public List<ForcastList> getForcastList() {
+        return mForcastList;
     }
 
-    public void setList(java.util.List<List> list) {
-        this.list = list;
+    public void setForcastList(List<ForcastList> forcastList) {
+        this.mForcastList = forcastList;
     }
 
 }

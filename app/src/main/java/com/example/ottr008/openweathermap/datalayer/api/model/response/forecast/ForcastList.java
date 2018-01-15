@@ -4,7 +4,7 @@ package com.example.ottr008.openweathermap.datalayer.api.model.response.forecast
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class List {
+public class ForcastList {
 
     @SerializedName("dt")
     @Expose

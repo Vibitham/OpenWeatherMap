@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.ottr008.openweathermap.R;
+import com.example.ottr008.openweathermap.datalayer.api.model.response.forecast.ForcastList;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -20,7 +21,7 @@ import javax.inject.Inject;
  */
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
 
-    private final List<com.example.ottr008.openweathermap.datalayer.api.model.response.forecast.List> list;
+    private final List<ForcastList> mForcastList;
     private static final int TO_SECONDS = 1000;
     private static final int MONTH_3 = 3;
     private static final int MONTH_4 = 4;
@@ -48,8 +49,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
 
     @Inject
-    public CustomAdapter(List<com.example.ottr008.openweathermap.datalayer.api.model.response.forecast.List> list) {
-        this.list = list;
+    public CustomAdapter(List<ForcastList> forcastList) {
+        this.mForcastList = forcastList;
 
     }
 
@@ -64,7 +65,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     @Override
     public final void onBindViewHolder(MyViewHolder holder, int position) {
 
-        com.example.ottr008.openweathermap.datalayer.api.model.response.forecast.List rowPos = list.get(position);
+        ForcastList rowPos = mForcastList.get(position);
         switch(rowPos.getWeather().get(0).getDescription())
         {
             case "light rain":
@@ -154,6 +155,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
     @Override
     public final int getItemCount() {
-        return list.size();
+        return mForcastList.size();
     }
 }

@@ -1,6 +1,6 @@
 package com.example.ottr008.openweathermap.feature.weather.di.module;
 
-import com.example.ottr008.openweathermap.datalayer.api.model.response.forecast.List;
+import com.example.ottr008.openweathermap.datalayer.api.model.response.forecast.ForcastList;
 import com.example.ottr008.openweathermap.feature.weather.ui.adaptor.CustomAdapter;
 
 import dagger.Module;
@@ -12,19 +12,19 @@ import dagger.Provides;
 @Module
 public class ForecastAdapterModule {
 
-    private java.util.List<List> list;
+    private java.util.List<ForcastList> mForcastList;
 
-    public void setAdapterList(java.util.List<List> list){
-        this.list = list;
+    public void setAdapterList(java.util.List<ForcastList> forcastList){
+        this.mForcastList = forcastList;
     }
 
     @Provides
-    java.util.List<List> getList(){
-        return list;
+    java.util.List<ForcastList> getForcastList(){
+        return mForcastList;
     }
 
     @Provides
     CustomAdapter getCustomAdapter(){
-        return new CustomAdapter(getList());
+        return new CustomAdapter(getForcastList());
     }
 }

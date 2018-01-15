@@ -7,7 +7,7 @@ import android.content.SharedPreferences;
 import android.util.Log;
 
 import com.example.ottr008.openweathermap.datalayer.api.model.response.forecast.ForecastData;
-import com.example.ottr008.openweathermap.datalayer.api.model.response.forecast.List;
+import com.example.ottr008.openweathermap.datalayer.api.model.response.forecast.ForcastList;
 import com.example.ottr008.openweathermap.feature.weather.presenter.contracts.ForecastTabContract;
 import com.example.ottr008.openweathermap.datalayer.api.ApiClient;
 import com.example.ottr008.openweathermap.datalayer.api.ApiContract;
@@ -44,7 +44,7 @@ public class ForecastTabPresenter implements ForecastTabContract.Presenter{
         call.enqueue(new Callback<ForecastData>() {
             @Override
             public void onResponse(Call<ForecastData> call, Response<ForecastData> response) {
-                java.util.List<List> datas = response.body().getList();
+                java.util.List<ForcastList> datas = response.body().getForcastList();
                 view.viewUpdate(datas);
 
             }

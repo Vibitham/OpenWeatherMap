@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.example.ottr008.openweathermap.R;
 import com.example.ottr008.openweathermap.base.ui.BaseFragment;
+import com.example.ottr008.openweathermap.datalayer.api.model.response.forecast.ForcastList;
 import com.example.ottr008.openweathermap.feature.weather.di.module.ForecastAdapterModule;
 import com.example.ottr008.openweathermap.feature.weather.presenter.contracts.ForecastTabContract;
 import com.example.ottr008.openweathermap.feature.weather.ui.adaptor.CustomAdapter;
@@ -61,7 +62,7 @@ public class ForecastTabFragment extends BaseFragment implements ForecastTabCont
     }
 
     @Override
-    public void viewUpdate(List<com.example.ottr008.openweathermap.datalayer.api.model.response.forecast.List> datas) {
+    public void viewUpdate(List<ForcastList> datas) {
         loading.dismiss();
         ForecastAdapterModule forecastAdapterModule = new ForecastAdapterModule();
 
