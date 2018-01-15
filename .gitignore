@@ -48,3 +48,4 @@ Thumbs.db
 app/src/main/java/com/example/ottr008/openweathermap/component/
 app/src/main/java/com/example/ottr008/openweathermap/feature/weather/model/
 app/src/main/java/com/example/ottr008/openweathermap/feature/weather/usecase/
+/.idea/
