@@ -1,5 +1,7 @@
 package com.example.ottr008.openweathermap.base.presenter;
 
+import android.content.SharedPreferences;
+
 import com.example.ottr008.openweathermap.base.presenter.BasePresenter;
 
 /**
@@ -8,4 +10,5 @@ import com.example.ottr008.openweathermap.base.presenter.BasePresenter;
 
 public interface BaseView<T extends BasePresenter> {
     void setPresenter(T currentWeatherPresenter);
+    SharedPreferences getSharedPref(String name, int mode);
 }

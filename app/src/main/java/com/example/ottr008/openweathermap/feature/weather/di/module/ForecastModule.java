@@ -15,7 +15,7 @@ import dagger.Provides;
 @Module
 public class ForecastModule {
     private ForecastTabContract.View forecastTabView;
-    private Context context;
+
 
     public ForecastModule() {
 
@@ -25,23 +25,18 @@ public class ForecastModule {
         this.forecastTabView = forecastTabFragment;
     }
 
-    public void setContext(Context context){
-        this.context = context;
-    }
+
 
     @Provides
     ForecastTabContract.View getForecastView(){
         return forecastTabView;
     }
 
-    @Provides
-    Context getContext(){
-        return context;
-    }
+
 
     @Provides
     ForecastTabContract.Presenter getForecastPresenter(){
-        return new ForecastTabPresenter(getForecastView(),getContext());
+        return new ForecastTabPresenter(getForecastView());
     }
 
 

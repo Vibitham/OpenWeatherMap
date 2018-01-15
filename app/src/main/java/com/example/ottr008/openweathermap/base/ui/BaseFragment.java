@@ -1,5 +1,6 @@
 package com.example.ottr008.openweathermap.base.ui;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.annotation.Nullable;
@@ -7,6 +8,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.ottr008.openweathermap.datalayer.api.ServiceConstants;
+
+import static android.content.Context.MODE_PRIVATE;
 
 /**
  * Created by Vibitha on 7/3/17.
@@ -34,4 +39,8 @@ public abstract class BaseFragment extends Fragment {
     protected abstract int getLayoutResource();
 
     protected abstract void configView();
+
+    public SharedPreferences getSharedPref(String name,int mode){
+      return getActivity().getSharedPreferences(name, mode);
+    }
 }

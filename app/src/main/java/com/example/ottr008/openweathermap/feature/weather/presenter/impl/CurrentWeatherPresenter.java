@@ -18,12 +18,11 @@ import retrofit2.Response;
 
 public class CurrentWeatherPresenter implements CurrentWeatherContract.Presenter {
     private CurrentWeatherContract.View currentWeatherContractView;
-    private Context mContext;
 
-    public CurrentWeatherPresenter(CurrentWeatherContract.View currentWeatherContract, Context ctxt) {
+
+    public CurrentWeatherPresenter(CurrentWeatherContract.View currentWeatherContract) {
         this.currentWeatherContractView = currentWeatherContract;
         currentWeatherContractView.setPresenter(this);
-        mContext = ctxt;
     }
 
     public void apiService(Double lat, Double lng, String apiid, String units) {

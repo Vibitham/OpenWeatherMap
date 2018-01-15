@@ -16,21 +16,6 @@ import dagger.Provides;
 public class CurrentWeatherModule {
 
     private CurrentWeatherContract.View currentWeatherView;
-    private Context weatherContext;
-
-    public void setCurrentWeatherView(CurrentWeatherContract.View currentWeatherFragment){
-        this.currentWeatherView = currentWeatherFragment;
-    }
-
-    public void setWeatherContext(Context weatherContext){
-        this.weatherContext = weatherContext;
-    }
-
-    @Provides
-    CurrentWeatherContract.Presenter getCurrentWeatherpresenter(){
-        return new CurrentWeatherPresenter(currentWeatherView, weatherContext);
-    }
-
 
     @Provides
     CurrentWeatherContract.View getCurrentWeatherView(){
@@ -38,8 +23,7 @@ public class CurrentWeatherModule {
     }
 
     @Provides
-    Context getWeatherContext(){
-        return weatherContext;
+    CurrentWeatherContract.Presenter getCurrentWeatherpresenter(){
+        return new CurrentWeatherPresenter(currentWeatherView);
     }
-
 }

@@ -27,13 +27,13 @@ import retrofit2.Response;
 public class ForecastTabPresenter implements ForecastTabContract.Presenter{
 
     private ForecastTabContract.View view;
-    private Context mContext;
+
 
     @Inject
-    public ForecastTabPresenter(ForecastTabContract.View forecastTabContract, Context ctxt) {
+    public ForecastTabPresenter(ForecastTabContract.View forecastTabContract) {
         view = forecastTabContract;
         view.setPresenter(this);
-        mContext = ctxt;
+
     }
 
     @Override
@@ -58,9 +58,9 @@ public class ForecastTabPresenter implements ForecastTabContract.Presenter{
 
     @Override
     public void getData() {
-        SharedPreferences unitsprefs = mContext.getSharedPreferences(ServiceConstants.UNITS_PREF_NAME, MODE_PRIVATE);
+        SharedPreferences unitsprefs = view.getSharedPref(ServiceConstants.UNITS_PREF_NAME, MODE_PRIVATE);
         String restoredUnitsText = unitsprefs.getString("Units", null);
-        SharedPreferences forecastprefs = mContext.getSharedPreferences(ServiceConstants.FORECAST_PREF_NAME, MODE_PRIVATE);
+        SharedPreferences forecastprefs =  view.getSharedPref(ServiceConstants.FORECAST_PREF_NAME, MODE_PRIVATE);
         String restoredForecastText = forecastprefs.getString("Forecast", null);
         if(forecastprefs.getString("Forecast", null) == "Short(7 Days)" ){
             view.updateCount(ForecastTabFragment.CNT,restoredUnitsText,restoredForecastText);
