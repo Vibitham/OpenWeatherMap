@@ -1,4 +1,4 @@
-package com.example.ottr008.openweathermap.services;
+package com.example.ottr008.openweathermap.datalayer.api;
 
 /**
  * Created by Vibitha on 8/3/17.

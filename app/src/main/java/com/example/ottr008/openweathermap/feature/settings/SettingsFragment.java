@@ -7,7 +7,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import com.example.ottr008.openweathermap.R;
-import com.example.ottr008.openweathermap.base.BaseFragment;
+import com.example.ottr008.openweathermap.base.ui.BaseFragment;
 
 /**
  * Created by Vibitha on 8/3/17.

@@ -20,7 +20,7 @@ import javax.inject.Inject;
  */
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
 
-    private final List<com.example.ottr008.openweathermap.services.model.forecastresponsemodel.List> list;
+    private final List<com.example.ottr008.openweathermap.datalayer.api.model.response.forecast.List> list;
     private static final int TO_SECONDS = 1000;
     private static final int MONTH_3 = 3;
     private static final int MONTH_4 = 4;
@@ -48,7 +48,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
 
     @Inject
-    public CustomAdapter(List<com.example.ottr008.openweathermap.services.model.forecastresponsemodel.List> list) {
+    public CustomAdapter(List<com.example.ottr008.openweathermap.datalayer.api.model.response.forecast.List> list) {
         this.list = list;
 
     }
@@ -64,7 +64,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     @Override
     public final void onBindViewHolder(MyViewHolder holder, int position) {
 
-        com.example.ottr008.openweathermap.services.model.forecastresponsemodel.List rowPos = list.get(position);
+        com.example.ottr008.openweathermap.datalayer.api.model.response.forecast.List rowPos = list.get(position);
         switch(rowPos.getWeather().get(0).getDescription())
         {
             case "light rain":

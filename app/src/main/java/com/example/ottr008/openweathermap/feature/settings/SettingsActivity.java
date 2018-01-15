@@ -1,7 +1,7 @@
 package com.example.ottr008.openweathermap.feature.settings;
 
 import com.example.ottr008.openweathermap.R;
-import com.example.ottr008.openweathermap.base.BaseActivity;
+import com.example.ottr008.openweathermap.base.ui.BaseActivity;
 import com.example.ottr008.openweathermap.utils.ActivityUtils;
 
 public class SettingsActivity extends BaseActivity {

@@ -1,7 +1,8 @@
 package com.example.ottr008.openweathermap.feature.weather.presenter.contracts;
 
-import com.example.ottr008.openweathermap.services.model.weatherresponsemodel.WeatherResponse;
-import com.example.ottr008.openweathermap.base.BaseView;
+import com.example.ottr008.openweathermap.base.presenter.BasePresenter;
+import com.example.ottr008.openweathermap.datalayer.api.model.response.weather.WeatherResponse;
+import com.example.ottr008.openweathermap.base.presenter.BaseView;
 
 import retrofit2.Response;
 
@@ -16,7 +17,7 @@ public interface CurrentWeatherContract {
         void setViewOnResponse(Response<WeatherResponse> response);
     }
     
-    interface Presenter{
+    interface Presenter extends BasePresenter {
         void apiService(Double lat, Double lng, String apiid, String units);
     }
 }

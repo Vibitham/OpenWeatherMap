@@ -5,7 +5,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.example.ottr008.openweathermap.R;
-import com.example.ottr008.openweathermap.base.BaseActivity;
+import com.example.ottr008.openweathermap.base.ui.BaseActivity;
 import com.example.ottr008.openweathermap.feature.settings.SettingsActivity;
 import com.example.ottr008.openweathermap.feature.weather.presenter.impl.CurrentWeatherPresenter;
 import com.example.ottr008.openweathermap.feature.weather.presenter.impl.ForecastTabPresenter;

@@ -1,8 +1,9 @@
 package com.example.ottr008.openweathermap.feature.weather.presenter.contracts;
 
 
-import com.example.ottr008.openweathermap.services.model.forecastresponsemodel.List;
-import com.example.ottr008.openweathermap.base.BaseView;
+import com.example.ottr008.openweathermap.base.presenter.BasePresenter;
+import com.example.ottr008.openweathermap.datalayer.api.model.response.forecast.List;
+import com.example.ottr008.openweathermap.base.presenter.BaseView;
 
 public interface ForecastTabContract {
 
@@ -13,7 +14,7 @@ public interface ForecastTabContract {
         void updateCount(int cnt,String restoredUnitsText,String restoredForecastText);
     }
 
-    interface Presenter{
+    interface Presenter extends BasePresenter {
 
         void forcastWeatherApi(Double latitude, Double longitude, int cnt, String appID,
                 String metric);

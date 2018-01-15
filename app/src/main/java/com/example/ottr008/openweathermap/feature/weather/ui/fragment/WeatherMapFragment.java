@@ -4,7 +4,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 
 import com.example.ottr008.openweathermap.R;
-import com.example.ottr008.openweathermap.base.BaseFragment;
+import com.example.ottr008.openweathermap.base.ui.BaseFragment;
 import com.example.ottr008.openweathermap.feature.weather.ui.adaptor.PageAdapter;
 import com.example.ottr008.openweathermap.feature.weather.presenter.contracts.WeatherMapContract;
 

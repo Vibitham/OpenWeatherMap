@@ -1,5 +1,5 @@
 
-package com.example.ottr008.openweathermap.services.model.weatherresponsemodel;
+package com.example.ottr008.openweathermap.datalayer.api.model.response.weather;
 
 import java.util.List;
 

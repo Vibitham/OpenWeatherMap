@@ -1,5 +1,5 @@
 
-package com.example.ottr008.openweathermap.services.model.forecastresponsemodel;
+package com.example.ottr008.openweathermap.datalayer.api.model.response.weather;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

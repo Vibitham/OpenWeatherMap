@@ -2,7 +2,8 @@ package com.example.ottr008.openweathermap.feature.settings;
 
 import android.widget.ArrayAdapter;
 
-import com.example.ottr008.openweathermap.base.BaseView;
+import com.example.ottr008.openweathermap.base.presenter.BasePresenter;
+import com.example.ottr008.openweathermap.base.presenter.BaseView;
 
 /**
  * Created by Vibitha on 8/3/17.
@@ -18,7 +19,7 @@ public interface SettingsContract {
         void setForecastSpinnerAdapter(ArrayAdapter<String> adapter);
     }
 
-    interface Presenter
+    interface Presenter extends BasePresenter
     {
 
         void addItemsToUnitsSpinner();

@@ -1,4 +1,4 @@
-package com.example.ottr008.openweathermap.base;
+package com.example.ottr008.openweathermap.base.ui;
 
 import android.os.Bundle;
 import android.support.annotation.IdRes;

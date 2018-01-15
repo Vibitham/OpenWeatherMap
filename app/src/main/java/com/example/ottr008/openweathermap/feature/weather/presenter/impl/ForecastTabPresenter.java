@@ -6,12 +6,12 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
 
-import com.example.ottr008.openweathermap.services.model.forecastresponsemodel.ForecastData;
-import com.example.ottr008.openweathermap.services.model.forecastresponsemodel.List;
+import com.example.ottr008.openweathermap.datalayer.api.model.response.forecast.ForecastData;
+import com.example.ottr008.openweathermap.datalayer.api.model.response.forecast.List;
 import com.example.ottr008.openweathermap.feature.weather.presenter.contracts.ForecastTabContract;
-import com.example.ottr008.openweathermap.services.ApiClient;
-import com.example.ottr008.openweathermap.services.ApiContract;
-import com.example.ottr008.openweathermap.services.ServiceConstants;
+import com.example.ottr008.openweathermap.datalayer.api.ApiClient;
+import com.example.ottr008.openweathermap.datalayer.api.ApiContract;
+import com.example.ottr008.openweathermap.datalayer.api.ServiceConstants;
 import com.example.ottr008.openweathermap.feature.weather.ui.fragment.ForecastTabFragment;
 
 import javax.inject.Inject;

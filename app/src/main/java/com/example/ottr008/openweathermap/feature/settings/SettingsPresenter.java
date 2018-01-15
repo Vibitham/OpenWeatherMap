@@ -4,8 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.widget.ArrayAdapter;
 
-import com.example.ottr008.openweathermap.feature.settings.SettingsContract;
-import com.example.ottr008.openweathermap.services.ServiceConstants;
+import com.example.ottr008.openweathermap.datalayer.api.ServiceConstants;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +16,7 @@ import static android.content.Context.MODE_PRIVATE;
  */
 
 public class SettingsPresenter implements SettingsContract.Presenter {
+
     private Context context;
     private SettingsContract.View view;
 

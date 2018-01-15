@@ -22,4 +22,12 @@ public final class ActivityUtils {
         transaction.commit();
 
     }
+
+    public static void addFragmentToActivity(@NonNull FragmentManager fragmentManager,
+                                             @NonNull Fragment fragment, int frameId,String tag) {
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(frameId, fragment,tag);
+        transaction.commit();
+
+    }
 }

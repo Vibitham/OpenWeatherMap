@@ -16,8 +16,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.ottr008.openweathermap.R;
-import com.example.ottr008.openweathermap.base.BaseFragment;
-import com.example.ottr008.openweathermap.services.model.weatherresponsemodel.WeatherResponse;
+import com.example.ottr008.openweathermap.base.ui.BaseFragment;
+import com.example.ottr008.openweathermap.datalayer.api.model.response.weather.WeatherResponse;
 import com.example.ottr008.openweathermap.feature.weather.presenter.contracts.CurrentWeatherContract;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.Status;

@@ -1,7 +1,7 @@
-package com.example.ottr008.openweathermap.services;
+package com.example.ottr008.openweathermap.datalayer.api;
 
-import com.example.ottr008.openweathermap.services.model.forecastresponsemodel.ForecastData;
-import com.example.ottr008.openweathermap.services.model.weatherresponsemodel.WeatherResponse;
+import com.example.ottr008.openweathermap.datalayer.api.model.response.forecast.ForecastData;
+import com.example.ottr008.openweathermap.datalayer.api.model.response.weather.WeatherResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

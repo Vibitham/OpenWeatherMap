@@ -1,4 +1,4 @@
-package com.example.ottr008.openweathermap.services;
+package com.example.ottr008.openweathermap.datalayer.api;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
