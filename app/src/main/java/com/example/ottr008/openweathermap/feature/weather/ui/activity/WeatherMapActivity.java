@@ -7,8 +7,8 @@ import android.view.MenuItem;
 import com.example.ottr008.openweathermap.R;
 import com.example.ottr008.openweathermap.base.ui.BaseActivity;
 import com.example.ottr008.openweathermap.feature.settings.SettingsActivity;
-import com.example.ottr008.openweathermap.feature.weather.di.component.DaggerForecastPresenterComponent;
-import com.example.ottr008.openweathermap.feature.weather.di.component.ForecastPresenterComponent;
+import com.example.ottr008.openweathermap.feature.weather.di.component.DaggerForecastComponent;
+import com.example.ottr008.openweathermap.feature.weather.di.component.ForecastComponent;
 import com.example.ottr008.openweathermap.feature.weather.di.module.ForecastModule;
 import com.example.ottr008.openweathermap.feature.weather.presenter.impl.CurrentWeatherPresenter;
 import com.example.ottr008.openweathermap.feature.weather.presenter.impl.ForecastTabPresenter;
@@ -20,6 +20,9 @@ import javax.inject.Inject;
 
 public class WeatherMapActivity extends BaseActivity implements Toolbar.OnMenuItemClickListener{
 
+
+    ForecastTabFragment forecastTabFragment;
+    CurrentWeatherFragment currentWeatherFragment;
 
    @Inject
    ForecastTabPresenter mForecastTabPresenter;
@@ -47,47 +50,45 @@ public class WeatherMapActivity extends BaseActivity implements Toolbar.OnMenuIt
 
     private void init() {
 
-        initPresenter(initView());
+        initPresenter();
     }
 
-    /**
-     * This method will initilaize presenter
-     *
-     * @param forecastTabFragment ForecastTabFragment
-     */
-
-    private void initPresenter(ForecastTabFragment forecastTabFragment) {
-
-        //mForecastPresenterComponent.getForecastPresenter();
 
 
-      // new ForecastTabPresenter(forecastTabFragment);
+    private void initPresenter() {
+        initFragments();
+        initForcastComponent();
+        //initWeatherComponenets();
+        ActivityUtils.addFragmentToActivity(getSupportFragmentManager(), forecastTabFragment, R.id.baseContainer);
 
-        ForecastModule sForecastModule = new ForecastModule();
+    }
 
-        sForecastModule.setForecastTabFragment(forecastTabFragment);
-        ForecastPresenterComponent mForecastPresenterComponent = DaggerForecastPresenterComponent
+ /*   private void initWeatherComponenets() {
+        WeatherModule currentWeatherModule = new WeatherModule();
+
+        currentWeatherModule.setCurrentWeatherView(currentWeatherFragment);
+
+        WeatherComponent currentWeatherComponent = DaggerWeatherComponent
                 .builder()
-                .forecastModule(sForecastModule)
+                .currentWeatherModule(currentWeatherModule)
                 .build();
-        mForecastPresenterComponent.inject(this);
+        currentWeatherComponent.inject(this);
+    }*/
 
+    private void initForcastComponent() {
+        ForecastModule forecastModule = new ForecastModule();
 
+        forecastModule.setForecastTabFragment(forecastTabFragment);
+        ForecastComponent mForecastComponent = DaggerForecastComponent
+                .builder()
+                .forecastModule(forecastModule)
+                .build();
+        mForecastComponent.inject(this);
     }
 
-    /**
-     * This method will initilaize view
-     *
-     * @return weatherMapFragment WeatherMapFragment
-     */
-    private ForecastTabFragment initView() {
-
-        ForecastTabFragment forecastTabFragment = (ForecastTabFragment) getSupportFragmentManager().findFragmentById(R.id.baseContainer);
-        if (forecastTabFragment == null) {
-            forecastTabFragment = ForecastTabFragment.newInstance();
-            ActivityUtils.addFragmentToActivity(getSupportFragmentManager(), forecastTabFragment, R.id.baseContainer);
-        }
-        return forecastTabFragment;
+    private void initFragments() {
+        forecastTabFragment = ForecastTabFragment.newInstance();
+        currentWeatherFragment = CurrentWeatherFragment.newInstance();
     }
 
 
@@ -101,37 +102,12 @@ public class WeatherMapActivity extends BaseActivity implements Toolbar.OnMenuIt
                 return true;
 
          case R.id.options:
-             initCurrentWeather();
+             new CurrentWeatherPresenter(currentWeatherFragment);
+             ActivityUtils.addFragmentToActivity(getSupportFragmentManager(), currentWeatherFragment, R.id.baseContainer);
         }
         return true;
     }
 
-    private void initCurrentWeather() {
-        initCurrentWeatherPresenter(initCurrentWeatherView());
-    }
 
-    private void initCurrentWeatherPresenter(CurrentWeatherFragment currentWeatherFragment) {
-       /* CurrentWeatherModule currentWeatherModule = new CurrentWeatherModule();
-
-        currentWeatherModule.setCurrentWeatherView(currentWeatherFragment);
-        currentWeatherModule.setWeatherContext(this);
-        CurrentWeatherComponent currentWeatherComponent = DaggerForecastPresenterComponent
-                .builder()
-                .currentWeatherModule(currentWeatherModule)
-                .build();
-        currentWeatherComponent.inject(this);*/
-        /*OpenWeatherApplication.setCurrentWeatherView(currentWeatherFragment);
-        OpenWeatherApplication.setWeatherContext(this);
-        OpenWeatherApplication.buildWeatherComponent();
-        OpenWeatherApplication.getCurrentWeatherComponent().inject(this);*/
-       new CurrentWeatherPresenter(currentWeatherFragment);
-    }
-
-    private CurrentWeatherFragment initCurrentWeatherView() {
-            CurrentWeatherFragment currentWeatherFragment = CurrentWeatherFragment.newInstance();
-            ActivityUtils.addFragmentToActivity(getSupportFragmentManager(), currentWeatherFragment, R.id.baseContainer);
-
-        return currentWeatherFragment;
-    }
 
 }

@@ -10,7 +10,7 @@ import dagger.Component;
  */
 @Component(modules = ForecastModule.class)
 
-public interface ForecastPresenterComponent {
+public interface ForecastComponent {
 
     void inject(WeatherMapActivity activity);
 }

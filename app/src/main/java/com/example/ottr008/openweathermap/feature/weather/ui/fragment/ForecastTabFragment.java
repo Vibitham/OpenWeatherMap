@@ -8,15 +8,10 @@ import android.support.v7.widget.RecyclerView;
 import com.example.ottr008.openweathermap.R;
 import com.example.ottr008.openweathermap.base.ui.BaseFragment;
 import com.example.ottr008.openweathermap.datalayer.api.model.response.forecast.ForcastList;
-import com.example.ottr008.openweathermap.feature.weather.di.component.DaggerForecastAdapterComponent;
-import com.example.ottr008.openweathermap.feature.weather.di.component.ForecastAdapterComponent;
-import com.example.ottr008.openweathermap.feature.weather.di.module.ForecastAdapterModule;
 import com.example.ottr008.openweathermap.feature.weather.presenter.contracts.ForecastTabContract;
 import com.example.ottr008.openweathermap.feature.weather.ui.adaptor.CustomAdapter;
 
 import java.util.List;
-
-import javax.inject.Inject;
 
 public class ForecastTabFragment extends BaseFragment implements ForecastTabContract.View {
 
@@ -26,7 +21,6 @@ public class ForecastTabFragment extends BaseFragment implements ForecastTabCont
     public static final int CNT = 7;
     private int count;
     public static final int COUNT = 16;
-    @Inject
     CustomAdapter dataAdapter;
     private RecyclerView recyclerView;
     private ForecastTabContract.Presenter currentWeatherPresenter;
@@ -69,15 +63,15 @@ public class ForecastTabFragment extends BaseFragment implements ForecastTabCont
     @Override
     public void viewUpdate(List<ForcastList> datas) {
         loading.dismiss();
-        ForecastAdapterModule forecastAdapterModule = new ForecastAdapterModule();
+       /* ForecastAdapterModule forecastAdapterModule = new ForecastAdapterModule();
 
         forecastAdapterModule.setAdapterList(datas);
         ForecastAdapterComponent mForecastAdapterComponent = DaggerForecastAdapterComponent
                 .builder()
                 .forecastAdapterModule(forecastAdapterModule)
                 .build();
-        mForecastAdapterComponent.inject(this);
-       // dataAdapter = new CustomAdapter(datas);
+        mForecastAdapterComponent.inject(this);*/
+        dataAdapter = new CustomAdapter(datas);
         recyclerView.setAdapter(dataAdapter);
     }
 

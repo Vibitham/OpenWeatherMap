@@ -13,9 +13,13 @@ import dagger.Provides;
  */
 
 @Module
-public class CurrentWeatherModule {
+public class WeatherModule {
 
     private CurrentWeatherContract.View currentWeatherView;
+
+    public void setCurrentWeatherView(CurrentWeatherContract.View currentWeatherView) {
+        this.currentWeatherView = currentWeatherView;
+    }
 
     @Provides
     CurrentWeatherContract.View getCurrentWeatherView(){
