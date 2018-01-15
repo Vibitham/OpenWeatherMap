@@ -35,13 +35,13 @@ local.properties
 .idea/modules.xml
 .idea/scopes/scope_settings.xml
 .idea/vcs.xml
-*.iml
+
 
 # OS-specific files
-.DS_Store
 
-.Spotlight-V100
-.Trashes
+
+*.Spotlight-V100
+*.Trashes
 ehthumbs.db
 Thumbs.db
 app/src/main/java/com/example/ottr008/openweathermap/component/
