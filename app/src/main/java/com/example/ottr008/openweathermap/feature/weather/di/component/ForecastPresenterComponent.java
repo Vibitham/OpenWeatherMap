@@ -1,7 +1,6 @@
 package com.example.ottr008.openweathermap.feature.weather.di.component;
 
 import com.example.ottr008.openweathermap.feature.weather.di.module.ForecastModule;
-import com.example.ottr008.openweathermap.feature.weather.presenter.impl.ForecastTabPresenter;
 import com.example.ottr008.openweathermap.feature.weather.ui.activity.WeatherMapActivity;
 
 import dagger.Component;
@@ -14,6 +13,4 @@ import dagger.Component;
 public interface ForecastPresenterComponent {
 
     void inject(WeatherMapActivity activity);
-
-
 }

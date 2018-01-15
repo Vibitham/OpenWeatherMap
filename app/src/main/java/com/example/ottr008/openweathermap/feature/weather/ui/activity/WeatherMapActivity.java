@@ -7,17 +7,22 @@ import android.view.MenuItem;
 import com.example.ottr008.openweathermap.R;
 import com.example.ottr008.openweathermap.base.ui.BaseActivity;
 import com.example.ottr008.openweathermap.feature.settings.SettingsActivity;
+import com.example.ottr008.openweathermap.feature.weather.di.component.DaggerForecastPresenterComponent;
+import com.example.ottr008.openweathermap.feature.weather.di.component.ForecastPresenterComponent;
+import com.example.ottr008.openweathermap.feature.weather.di.module.ForecastModule;
 import com.example.ottr008.openweathermap.feature.weather.presenter.impl.CurrentWeatherPresenter;
 import com.example.ottr008.openweathermap.feature.weather.presenter.impl.ForecastTabPresenter;
 import com.example.ottr008.openweathermap.feature.weather.ui.fragment.CurrentWeatherFragment;
 import com.example.ottr008.openweathermap.feature.weather.ui.fragment.ForecastTabFragment;
 import com.example.ottr008.openweathermap.utils.ActivityUtils;
 
+import javax.inject.Inject;
+
 public class WeatherMapActivity extends BaseActivity implements Toolbar.OnMenuItemClickListener{
 
 
-   //@Inject
-   //ForecastTabPresenter mForecastTabPresenter;
+   @Inject
+   ForecastTabPresenter mForecastTabPresenter;
 
   /* @Inject
    CurrentWeatherPresenter mCurrentWeatherPresenter;*/
@@ -55,16 +60,16 @@ public class WeatherMapActivity extends BaseActivity implements Toolbar.OnMenuIt
 
         //mForecastPresenterComponent.getForecastPresenter();
 
-       // ForecastModule sForecastModule = new ForecastModule();
-        new ForecastTabPresenter(forecastTabFragment,this);
+       ForecastModule sForecastModule = new ForecastModule();
+       // new ForecastTabPresenter(forecastTabFragment,this);
 
-        /*sForecastModule.setForecastTabFragment(forecastTabFragment);
+        sForecastModule.setForecastTabFragment(forecastTabFragment);
         sForecastModule.setContext(this);
         ForecastPresenterComponent mForecastPresenterComponent = DaggerForecastPresenterComponent
                 .builder()
                 .forecastModule(sForecastModule)
                 .build();
-        mForecastPresenterComponent.inject(this);*/
+        mForecastPresenterComponent.inject(this);
 
        /* OpenWeatherApplication.setForecastView(forecastTabFragment);
         OpenWeatherApplication.setContext(this);
