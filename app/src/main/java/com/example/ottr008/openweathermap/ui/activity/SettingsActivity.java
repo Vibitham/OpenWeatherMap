@@ -1,11 +1,20 @@
 package com.example.ottr008.openweathermap.ui.activity;
 
 import com.example.ottr008.openweathermap.R;
+import com.example.ottr008.openweathermap.di.component.DaggerSettingsComponent;
+import com.example.ottr008.openweathermap.di.component.SettingsComponent;
+import com.example.ottr008.openweathermap.di.module.SettingsModule;
+import com.example.ottr008.openweathermap.presenter.ForecastTabPresenter;
 import com.example.ottr008.openweathermap.presenter.SettingsPresenter;
 import com.example.ottr008.openweathermap.ui.fragment.SettingsFragment;
 import com.example.ottr008.openweathermap.utils.ActivityUtils;
 
+import javax.inject.Inject;
+
 public class SettingsActivity extends BaseActivity {
+
+    @Inject
+    SettingsPresenter mSettingsPresenter;
 
     @Override
     protected final int getResourceLayout() {
@@ -30,7 +39,16 @@ public class SettingsActivity extends BaseActivity {
      * @param settingsFragment SettingsFragment
      */
     private void initPresenter(SettingsFragment settingsFragment) {
-        new SettingsPresenter(settingsFragment, this);
+        SettingsModule settingsModule = new SettingsModule();
+
+        settingsModule.setSettingsView(settingsFragment);
+        settingsModule.setContext(this);
+        SettingsComponent settingsComponent = DaggerSettingsComponent
+                .builder()
+                .settingsModule(settingsModule)
+                .build();
+        settingsComponent.inject(this);
+       // new SettingsPresenter(settingsFragment, this);
     }
 
     /**

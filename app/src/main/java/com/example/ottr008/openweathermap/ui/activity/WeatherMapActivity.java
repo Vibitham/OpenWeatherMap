@@ -5,9 +5,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.example.ottr008.openweathermap.R;
-import com.example.ottr008.openweathermap.component.DaggerForecastPresenterComponent;
-import com.example.ottr008.openweathermap.component.ForecastPresenterComponent;
-import com.example.ottr008.openweathermap.module.ForecastModule;
+import com.example.ottr008.openweathermap.di.component.DaggerForecastPresenterComponent;
+import com.example.ottr008.openweathermap.di.component.ForecastPresenterComponent;
+import com.example.ottr008.openweathermap.di.module.ForecastModule;
 import com.example.ottr008.openweathermap.presenter.CurrentWeatherPresenter;
 import com.example.ottr008.openweathermap.presenter.ForecastTabPresenter;
 import com.example.ottr008.openweathermap.ui.fragment.CurrentWeatherFragment;
@@ -82,7 +82,7 @@ public class WeatherMapActivity extends BaseActivity implements Toolbar.OnMenuIt
 
         ForecastTabFragment forecastTabFragment = (ForecastTabFragment) getSupportFragmentManager().findFragmentById(R.id.baseContainer);
         if (forecastTabFragment == null) {
-            forecastTabFragment = ForecastTabFragment.newInstance();
+            forecastTabFragment = ForecastTabFragment.newInstance(this);
             ActivityUtils.addFragmentToActivity(getSupportFragmentManager(), forecastTabFragment, R.id.baseContainer);
         }
         return forecastTabFragment;

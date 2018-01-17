@@ -2,29 +2,18 @@ package com.example.ottr008.openweathermap.ui.fragment;
 
 
 import android.app.ProgressDialog;
-import android.content.SharedPreferences;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 
 import com.example.ottr008.openweathermap.R;
-import com.example.ottr008.openweathermap.component.DaggerForecastAdapterComponent;
-import com.example.ottr008.openweathermap.component.ForecastAdapterComponent;
-import com.example.ottr008.openweathermap.model.forecastresponsemodel.ForecastData;
-import com.example.ottr008.openweathermap.module.ForecastAdapterModule;
+import com.example.ottr008.openweathermap.di.component.DaggerForecastAdapterComponent;
+import com.example.ottr008.openweathermap.di.component.ForecastAdapterComponent;
+import com.example.ottr008.openweathermap.di.module.ForecastAdapterModule;
 import com.example.ottr008.openweathermap.presenter.contracts.ForecastTabContract;
-import com.example.ottr008.openweathermap.services.ApiContract;
-import com.example.ottr008.openweathermap.services.ApiClient;
-import com.example.ottr008.openweathermap.services.ServiceConstants;
+import com.example.ottr008.openweathermap.ui.activity.WeatherMapActivity;
 import com.example.ottr008.openweathermap.ui.adapter.CustomAdapter;
 
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
-import static android.content.Context.MODE_PRIVATE;
 
 import javax.inject.Inject;
 
@@ -67,7 +56,14 @@ public class ForecastTabFragment extends BaseFragment implements ForecastTabCont
         }
     }
 
-    public static ForecastTabFragment newInstance() {
+    public static ForecastTabFragment newInstance(WeatherMapActivity weatherMapActivity) {
+       /* TabFragmentModule tabFragmentModule = new TabFragmentModule();
+
+        TabFragmentComponent tabFragmentComponent = DaggerTabFragmentModule
+                .builder()
+                .tabFragmentModule(tabFragmentModule)
+                .build();
+        tabFragmentComponent.inject(weatherMapActivity);*/
         return new ForecastTabFragment();
     }
 

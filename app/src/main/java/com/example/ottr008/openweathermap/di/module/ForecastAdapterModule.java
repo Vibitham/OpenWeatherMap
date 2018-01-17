@@ -1,4 +1,4 @@
-package com.example.ottr008.openweathermap.module;
+package com.example.ottr008.openweathermap.di.module;
 
 import com.example.ottr008.openweathermap.model.forecastresponsemodel.List;
 import com.example.ottr008.openweathermap.ui.adapter.CustomAdapter;

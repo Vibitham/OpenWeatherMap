@@ -1,8 +1,7 @@
-package com.example.ottr008.openweathermap.component;
+package com.example.ottr008.openweathermap.di.component;
 
-import com.example.ottr008.openweathermap.module.ForecastModule;
+import com.example.ottr008.openweathermap.di.module.ForecastModule;
 import com.example.ottr008.openweathermap.presenter.ForecastTabPresenter;
-import com.example.ottr008.openweathermap.presenter.contracts.ForecastTabContract;
 import com.example.ottr008.openweathermap.ui.activity.WeatherMapActivity;
 
 import dagger.Component;

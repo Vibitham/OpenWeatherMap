@@ -12,6 +12,8 @@ import java.util.List;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import javax.inject.Inject;
+
 /**
  * Created by Vibitha on 8/3/17.
  */
@@ -20,6 +22,7 @@ public class SettingsPresenter implements SettingsContract.Presenter {
     private Context context;
     private SettingsContract.View view;
 
+    @Inject
     public SettingsPresenter(SettingsContract.View settingsView, Context ctxt) {
         view = settingsView;
         view.setPresenter(this);
