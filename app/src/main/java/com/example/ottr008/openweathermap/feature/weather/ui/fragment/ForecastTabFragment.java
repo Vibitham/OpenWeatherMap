@@ -7,7 +7,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.example.ottr008.openweathermap.R;
 import com.example.ottr008.openweathermap.base.ui.BaseFragment;
-import com.example.ottr008.openweathermap.datalayer.api.model.response.forecast.ForcastList;
+import com.example.api.api.model.response.forecast.ForcastList;
 import com.example.ottr008.openweathermap.feature.weather.presenter.contracts.ForecastTabContract;
 import com.example.ottr008.openweathermap.feature.weather.ui.adaptor.CustomAdapter;
 

@@ -1,6 +1,6 @@
 package com.example.ottr008.openweathermap.feature.weather.di.module;
 
-import com.example.ottr008.openweathermap.datalayer.api.model.response.forecast.ForcastList;
+import com.example.api.api.model.response.forecast.ForcastList;
 import com.example.ottr008.openweathermap.feature.weather.ui.adaptor.CustomAdapter;
 
 import dagger.Module;

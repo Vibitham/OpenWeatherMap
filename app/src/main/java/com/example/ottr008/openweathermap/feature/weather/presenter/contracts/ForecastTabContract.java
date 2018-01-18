@@ -2,7 +2,7 @@ package com.example.ottr008.openweathermap.feature.weather.presenter.contracts;
 
 
 import com.example.ottr008.openweathermap.base.presenter.BasePresenter;
-import com.example.ottr008.openweathermap.datalayer.api.model.response.forecast.ForcastList;
+import com.example.api.api.model.response.forecast.ForcastList;
 import com.example.ottr008.openweathermap.base.presenter.BaseView;
 
 public interface ForecastTabContract {

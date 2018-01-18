@@ -1,12 +1,12 @@
 package com.example.ottr008.openweathermap.feature.weather.presenter.impl;
 
-import android.content.Context;
 import android.util.Log;
 
-import com.example.ottr008.openweathermap.datalayer.api.model.response.weather.WeatherResponse;
+import com.example.api.api.ApiClient;
+import com.example.api.api.ApiContract;
+import com.example.api.api.model.response.weather.WeatherResponse;
 import com.example.ottr008.openweathermap.feature.weather.presenter.contracts.CurrentWeatherContract;
-import com.example.ottr008.openweathermap.datalayer.api.ApiClient;
-import com.example.ottr008.openweathermap.datalayer.api.ApiContract;
+
 
 import retrofit2.Call;
 import retrofit2.Callback;

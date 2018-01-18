@@ -1,7 +1,7 @@
 package com.example.ottr008.openweathermap.feature.weather.presenter.contracts;
 
 import com.example.ottr008.openweathermap.base.presenter.BasePresenter;
-import com.example.ottr008.openweathermap.datalayer.api.model.response.weather.WeatherResponse;
+import com.example.api.api.model.response.weather.WeatherResponse;
 import com.example.ottr008.openweathermap.base.presenter.BaseView;
 
 import retrofit2.Response;

@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.ottr008.openweathermap.R;
-import com.example.ottr008.openweathermap.datalayer.api.model.response.forecast.ForcastList;
+import com.example.api.api.model.response.forecast.ForcastList;
 
 import java.util.Calendar;
 import java.util.Date;

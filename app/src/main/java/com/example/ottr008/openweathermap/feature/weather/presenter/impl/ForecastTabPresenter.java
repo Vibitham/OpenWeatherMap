@@ -2,15 +2,15 @@ package com.example.ottr008.openweathermap.feature.weather.presenter.impl;
 
 import static android.content.Context.MODE_PRIVATE;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
 
-import com.example.ottr008.openweathermap.datalayer.api.model.response.forecast.ForecastData;
-import com.example.ottr008.openweathermap.datalayer.api.model.response.forecast.ForcastList;
+import com.example.api.api.ApiClient;
+import com.example.api.api.ApiContract;
+import com.example.api.api.model.response.forecast.ForecastData;
+import com.example.api.api.model.response.forecast.ForcastList;
 import com.example.ottr008.openweathermap.feature.weather.presenter.contracts.ForecastTabContract;
-import com.example.ottr008.openweathermap.datalayer.api.ApiClient;
-import com.example.ottr008.openweathermap.datalayer.api.ApiContract;
+
 import com.example.ottr008.openweathermap.datalayer.api.ServiceConstants;
 import com.example.ottr008.openweathermap.feature.weather.ui.fragment.ForecastTabFragment;
 
