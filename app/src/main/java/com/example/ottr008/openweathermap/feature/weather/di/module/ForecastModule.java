@@ -35,7 +35,7 @@ public class ForecastModule {
     CurrentWeatherContract.View getCurrentWeatherView(){
         return currentWearherView;
     }
-    
+
 
     @Provides
     ForecastTabContract.Presenter getForecastPresenter(){
