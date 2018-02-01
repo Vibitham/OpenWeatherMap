@@ -1,9 +1,9 @@
 package com.example.ottr008.openweathermap.feature.weather.di.module;
 
-import android.content.Context;
-
-import com.example.ottr008.openweathermap.feature.weather.presenter.impl.ForecastTabPresenter;
+import com.example.ottr008.openweathermap.feature.weather.presenter.contracts.CurrentWeatherContract;
 import com.example.ottr008.openweathermap.feature.weather.presenter.contracts.ForecastTabContract;
+import com.example.ottr008.openweathermap.feature.weather.presenter.impl.CurrentWeatherPresenter;
+import com.example.ottr008.openweathermap.feature.weather.presenter.impl.ForecastTabPresenter;
 
 import dagger.Module;
 import dagger.Provides;
@@ -14,29 +14,37 @@ import dagger.Provides;
 
 @Module
 public class ForecastModule {
+
     private ForecastTabContract.View forecastTabView;
 
+    private CurrentWeatherContract.View currentWearherView;
 
-    public ForecastModule() {
 
+    public ForecastModule(ForecastTabContract.View forecastTabView, CurrentWeatherContract.View currentWearherView) {
+        this.forecastTabView = forecastTabView;
+        this.currentWearherView = currentWearherView;
     }
-
-    public void setForecastTabFragment(ForecastTabContract.View forecastTabFragment){
-        this.forecastTabView = forecastTabFragment;
-    }
-
 
 
     @Provides
-    ForecastTabContract.View getForecastView(){
+    ForecastTabContract.View getForecastTabView(){
         return forecastTabView;
     }
 
-
+    @Provides
+    CurrentWeatherContract.View getCurrentWeatherView(){
+        return currentWearherView;
+    }
+    
 
     @Provides
     ForecastTabContract.Presenter getForecastPresenter(){
-        return new ForecastTabPresenter(getForecastView());
+        return new ForecastTabPresenter(forecastTabView);
+    }
+
+    @Provides
+    CurrentWeatherContract.Presenter getCurrentWeatherPresenter(){
+        return new CurrentWeatherPresenter(currentWearherView);
     }
 
 

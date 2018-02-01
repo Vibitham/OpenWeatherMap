@@ -27,8 +27,8 @@ public class WeatherMapActivity extends BaseActivity implements Toolbar.OnMenuIt
    @Inject
    ForecastTabPresenter mForecastTabPresenter;
 
-  /* @Inject
-   CurrentWeatherPresenter mCurrentWeatherPresenter;*/
+   @Inject
+   CurrentWeatherPresenter mCurrentWeatherPresenter;
 
     private Toolbar toolbar;
 
@@ -58,27 +58,16 @@ public class WeatherMapActivity extends BaseActivity implements Toolbar.OnMenuIt
     private void initPresenter() {
         initFragments();
         initForcastComponent();
-        //initWeatherComponenets();
+
         ActivityUtils.addFragmentToActivity(getSupportFragmentManager(), forecastTabFragment, R.id.baseContainer);
 
     }
 
- /*   private void initWeatherComponenets() {
-        WeatherModule currentWeatherModule = new WeatherModule();
-
-        currentWeatherModule.setCurrentWeatherView(currentWeatherFragment);
-
-        WeatherComponent currentWeatherComponent = DaggerWeatherComponent
-                .builder()
-                .currentWeatherModule(currentWeatherModule)
-                .build();
-        currentWeatherComponent.inject(this);
-    }*/
 
     private void initForcastComponent() {
-        ForecastModule forecastModule = new ForecastModule();
+        ForecastModule forecastModule = new ForecastModule(forecastTabFragment,currentWeatherFragment);
 
-        forecastModule.setForecastTabFragment(forecastTabFragment);
+
         ForecastComponent mForecastComponent = DaggerForecastComponent
                 .builder()
                 .forecastModule(forecastModule)
@@ -102,10 +91,11 @@ public class WeatherMapActivity extends BaseActivity implements Toolbar.OnMenuIt
                 return true;
 
          case R.id.options:
-             new CurrentWeatherPresenter(currentWeatherFragment);
+            // new CurrentWeatherPresenter(currentWeatherFragment);
              ActivityUtils.addFragmentToActivity(getSupportFragmentManager(), currentWeatherFragment, R.id.baseContainer);
+             return true;
         }
-        return true;
+        return false;
     }
 
 

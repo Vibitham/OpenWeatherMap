@@ -8,6 +8,8 @@ import com.example.ottr008.openweathermap.feature.weather.presenter.contracts.Cu
 import com.example.ottr008.openweathermap.datalayer.api.ApiClient;
 import com.example.ottr008.openweathermap.datalayer.api.ApiContract;
 
+import javax.inject.Inject;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -19,7 +21,7 @@ import retrofit2.Response;
 public class CurrentWeatherPresenter implements CurrentWeatherContract.Presenter {
     private CurrentWeatherContract.View currentWeatherContractView;
 
-
+    @Inject
     public CurrentWeatherPresenter(CurrentWeatherContract.View currentWeatherContract) {
         this.currentWeatherContractView = currentWeatherContract;
         currentWeatherContractView.setPresenter(this);
